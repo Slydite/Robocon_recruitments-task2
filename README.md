@@ -1,4 +1,4 @@
-# Robocon Recruitments- Task 2
+# Robocon Recruitments- Task 3.2
 
 This task is divided into two subtasks: "Mastering PID Control" and "Traversing a map guided by aruco tags".
 
