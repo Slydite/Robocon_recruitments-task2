@@ -16,18 +16,20 @@ In this subtask, you'll learn how to use a PID controller to take control of the
     - Then, in the original folder (`Robotics_ws`), you need to run `catkin_make` and `source devel/setup.bash`.
     - Finally, you can run `rosrun atom pid.py` for the script to start working. Make sure you first launch the world using the command from Task 1 (`roslaunch atom world.launch`).
 
-- The `pid.py` script has some boilerplate code for implementing a PID controller. It asks for you to enter an input velocity every 2 seconds. We have already done the heavy lifting of writing code to publish and subscribe as well as setting up the variables needed for controller, so now you just need to tune your PID controller and write your code properly. **You need to modify this file so that it asks for coordinates instead and the bot must reach those coordinates using PID control.**
+- The `pid.py` script has some boilerplate code for implementing a PID controller. Currently, it asks you to enter an input velocity every 2 seconds. **You need to modify this file so that it asks for coordinates instead and the bot must reach those coordinates using PID control.** 
 
 - To control the bot's movement, you can use the `odom` topic to get its current status and the `cmd_vel` topic to give it new velocities. Just be careful not to give it large velocities or it might behave unpredictably.
 
-- Try to understand the code and how exactly the various topics are being published and subscribed from so you can write your own code yourself.
+- Try to understand the code and how exactly the various topics are being published and subscribed. 
 
-- We have abstracted away much of the implementation part and only left you with the logic implementation. Read the documentation provided carefully as it will solve almost 80% of any doubts you might have. 
+- It is highly recommended for you to read and understand every word of the Documentation we have provided. If you are unfamiliar with python, try and understand what each part of the code does, you may use chatpgt to understand the code, but writing the code for the pid controller is not advised since this activity is more to promote learning than to serve as recruitments.
 
-- The deadline for subtask 1 would be 27th May while subtask 2 will be done later keeping your midsems in mind. 
+- The deadline for this subtask is 27th May while the next subtask will be done later keeping your midsems in mind. 
+
+- As always, feel free to ask any doubts you may have about the task. Good luck!
 
 ## Subtask B: Traversing a map guided by aruco tags
 
-In this subtask, you'll learn how to detect Aruco tags, calculate their distance from the bot, and navigate the map using guidance from aruco tags. It's an opportunity to explore new techniques and expand your knowledge in robotics. The details of this subtask will be updated later. You will be using your work from subtask 1 very directly in this. 
+In this subtask, you'll learn how to detect Aruco tags, calculate their distance from the bot, and navigate the map using guidance from aruco tags. It's an opportunity to explore new techniques and expand your knowledge in robotics. The details of this subtask will be updated later. It would be very easy to do once you are done with subtask 1
 
-## As always, feel free to ask any doubts you may have about the task.
+
