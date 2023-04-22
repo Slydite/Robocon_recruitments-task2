@@ -22,7 +22,7 @@ In this subtask, you'll learn how to use a PID controller to take control of the
 
 - Try to understand the code and how exactly the various topics are being published and subscribed from so you can write your own code yourself.
 
-- We have abstracted away much of the implementation part and only left you with the logic implementation. You can finish this task quite easily if you are attentive and **READ** the documentation we have provided.
+- We have abstracted away much of the implementation part and only left you with the logic implementation. Read the documentation provided carefully as it will solve almost 80% of any doubts you might have. 
 
 - The deadline for subtask 1 would be 27th May while subtask 2 will be done later keeping your midsems in mind. 
 
