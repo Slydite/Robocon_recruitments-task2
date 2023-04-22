@@ -22,13 +22,12 @@ In this subtask, you'll learn how to use a PID controller to take control of the
 
 - Try to understand the code and how exactly the various topics are being published and subscribed from so you can write your own code yourself.
 
-- The task is not difficult at all since we have abstracted away much of the implementation part and only left you with the logic implementation. You can finish this task quite easily if you are attentive and **READ** the documentation we have provided.
+- We have abstracted away much of the implementation part and only left you with the logic implementation. You can finish this task quite easily if you are attentive and **READ** the documentation we have provided.
 
 - The deadline for subtask 1 would be 27th May while subtask 2 will be done later keeping your midsems in mind. 
 
-
 ## Subtask B: Traversing a map guided by aruco tags
 
-In this subtask, you'll learn how to detect Aruco tags, calculate their distance from the bot, and navigate the map using guidance from aruco tags. It's an opportunity to explore new techniques and expand your knowledge in robotics. The details of this subtask will be updated later. It would be very easy to do once you are done with subtask 1
+In this subtask, you'll learn how to detect Aruco tags, calculate their distance from the bot, and navigate the map using guidance from aruco tags. It's an opportunity to explore new techniques and expand your knowledge in robotics. The details of this subtask will be updated later. You will be using your work from subtask 1 very directly in this. 
 
 ## As always, feel free to ask any doubts you may have about the task.
