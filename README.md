@@ -24,6 +24,8 @@ In this subtask, you'll learn how to use a PID controller to take control of the
 
 - The task is not difficult at all since we have abstracted away much of the implementation part and only left you with the logic implementation. You can finish this task quite easily if you are attentive and **READ** the documentation we have provided.
 
+- The deadline for subtask 1 would be 27th May while subtask 2 will be done later keeping your midsems in mind. 
+
 
 ## Subtask B: Exploring Aruco Tag Detection
 
