@@ -1,4 +1,4 @@
-# Robocon_recruitments-task2
+# Robocon Recruitments- Task 2
 
 This task is divided into two subtasks: "Mastering PID Control" and "Exploring Aruco Tag Detection".
 
