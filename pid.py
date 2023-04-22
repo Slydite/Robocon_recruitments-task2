@@ -10,13 +10,21 @@ import numpy as np
 import matplotlib.pyplot as pl
 import time
 
+@staticmethod
+def quaternion2euler(ox, oy, oz, ow):
+    
+    # Convert quaternion to Euler angles (yaw_z)
+    t3 = +2.0 * (ow * oz + ox * oy)
+    t4 = +1.0 - 2.0 * (oy * oy + oz * oz)
+    yaw_z = math.atan2(t3, t4)
+    return yaw_z
 
 class Controller:
 
     def __init__(self):
         # Initialize the ROS node and create a subscriber and publisher
         rospy.init_node("pid", anonymous=True)
-        self.sub = rospy.Subscriber("odom", Odometry, self.callback1)
+        self.sub = rospy.Subscriber("odom", Odometry, self.get_pos)
         self.pub = rospy.Publisher("atom/cmd_vel", Twist, queue_size=10)
 
         # Initialize variables
@@ -61,23 +69,15 @@ class Controller:
             rate.sleep()
             counter += 1
 
-    def callback1(self, data):
+    def get_pos(self, data):
         # Extract the orientation and position from the Odometry message and convert the orientation to Euler angles (yaw_z)
         ox, oy, oz, ow = data.pose.pose.orientation.x, data.pose.pose.orientation.y, data.pose.pose.orientation.z, data.pose.pose.orientation.w
         x, y = data.pose.pose.position.x, data.pose.pose.position.y
-        yaw_z = self.quaternion2euler(ox, oy, oz, ow)
+        yaw_z = quaternion2euler(ox, oy, oz, ow)
         yaw_z = math.degrees(yaw_z)
 
         # Update the current position and orientation of the robot (self.x, self.y and self.theta)
         self.x, self.y, self.theta = x, y, yaw_z
-
-    @staticmethod
-    def quaternion2euler(ox, oy, oz, ow):
-        # Convert quaternion to Euler angles (yaw_z)
-        t3 = +2.0 * (ow * oz + ox * oy)
-        t4 = +1.0 - 2.0 * (oy * oy + oz * oz)
-        yaw_z = math.atan2(t3, t4)
-        return yaw_z
 
 
 if __name__ == '__main__':
