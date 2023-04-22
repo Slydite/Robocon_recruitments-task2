@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
 import rospy
-from std_msgs.msg import Float64MultiArray
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from tf2_msgs.msg import TFMessage
 import math
-import numpy as np
-import matplotlib.pyplot as pl
-import time
 
 @staticmethod
 def quaternion2euler(ox, oy, oz, ow):
@@ -24,8 +20,13 @@ class Controller:
     def __init__(self):
         # Initialize the ROS node and create a subscriber and publisher
         rospy.init_node("pid", anonymous=True)
-        self.sub = rospy.Subscriber("odom", Odometry, self.get_pos)
+        self.sub = rospy.Subscriber("atom/odom", Odometry, self.get_pos)
         self.pub = rospy.Publisher("atom/cmd_vel", Twist, queue_size=10)
+
+
+        #Sample set of key points to follow, you may change it for further testing
+        #Or if you don't find it appropriate.
+        self.path = [(0, 0), (4,0), (4,4), (0, 4), (2,2)]
 
         # Initialize variables
         vel_msg = Twist()
@@ -49,6 +50,10 @@ class Controller:
 
         counter = 0
 
+        #Note: This is just a sample code to help you understand how the code works 
+        #for publishing messages to the bot
+        #You are expected to change it up sufficiently to align it with the problem statement
+
         while not rospy.is_shutdown():
             if counter % 20 == 0:
                 # Print current velocity, angular velocity and coordinates every 2 seconds
@@ -68,6 +73,11 @@ class Controller:
             self.pub.publish(vel_msg)
             rate.sleep()
             counter += 1
+
+    
+    #Use this to verify if you have reached the correct position.
+    #Note that some degree of inaccuracy is allowed but try to minimize it as much as possibe.
+    #Do whatever you feel is appropriate but then it must work for subtask2 as well
 
     def get_pos(self, data):
         # Extract the orientation and position from the Odometry message and convert the orientation to Euler angles (yaw_z)
