@@ -7,7 +7,7 @@ This task is divided into two subtasks: "Mastering PID Control" and "Traversing 
 In this subtask, you'll learn how to use a PID controller to take control of the Atom bot and guide it to any coordinate you choose. 
 
 - A PID controller is a powerful tool that uses proportional, integral, and derivative terms to control a system. By mastering this tool, you'll be able to control the robot with precision and accuracy.
-    - You can learn more about PID controllers from these resources: [Resource 1](), [Resource 2](), [Resource 3]().
+    - You can learn more about PID controllers from these resources: https://youtu.be/wkfEZmsQqiA and any other content you find for pid controllers. 
 
 - To get started:
     - You'll need to use the Atom bot package again. (You may use another bot, but this guide shall follow the atom bot).
