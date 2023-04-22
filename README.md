@@ -29,6 +29,6 @@ In this subtask, you'll learn how to use a PID controller to take control of the
 
 ## Subtask B: Exploring Aruco Tag Detection
 
-In this subtask, you'll learn how to detect Aruco tags, calculate their distance from the bot, and navigate the map using guidance from aruco tags. It's an opportunity to explore new techniques and expand your knowledge in robotics. The details of this subtask will be updated later.
+In this subtask, you'll learn how to detect Aruco tags, calculate their distance from the bot, and navigate the map using guidance from aruco tags. It's an opportunity to explore new techniques and expand your knowledge in robotics. The details of this subtask will be updated later. It would be very easy to do once you are done with subtask 1
 
 ## As always, feel free to ask any doubts you may have about the task.
