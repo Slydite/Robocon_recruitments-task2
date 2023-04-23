@@ -40,10 +40,10 @@ class Controller:
         self.min_speed = -0.2
         self.rot_flag = True
 
-        # PID controller gains for distance and angle control
-        self.kp_dist = 0.002
-        self.ki_dist = 0.001
-        self.kd_dist = 0.001
+        # PID controller gains for linear and angular control
+        self.kp_lin = 0.002
+        self.ki_lin = 0.001
+        self.kd_lin = 0.001
         self.kp_ang = 0.01
         self.ki_ang = 0.001
         self.kd_ang = 0.01
@@ -62,10 +62,13 @@ class Controller:
                 print("Current coordinates: ", self.x, self.y)
 
                 # Stop the robot and prompt the user for new velocities every 2 seconds
-                vel_msg.linear.x = 0
-                vel_msg.angular.z = 0
-                self.pub.publish(vel_msg)
-                vel_msg.linear.x = float(input("Enter linear velocity: "))
+                vel_msg.linear.x = 0            #Set the x velocity for the message using this variable
+                vel_msg.angular.z = 0           #Set the z angular velocity for the message using this variable
+                self.pub.publish(vel_msg)     
+                
+                #Instead of taking user input, input the coordinates to determine velocity
+                #HINT: This is what PID controllers are for, to calculate the veleocity you need to reach your goal. 
+                vel_msg.linear.x = float(input("Enter linear velocity: "))                                                                 
                 vel_msg.angular.z = float(input("Enter angular velocity: "))
 
             # Publish the velocities to the cmd_vel topic and sleep for the specified rate
