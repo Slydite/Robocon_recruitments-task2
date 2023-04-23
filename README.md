@@ -22,6 +22,8 @@ In this subtask, you'll learn how to use a PID controller to take control of the
 
 - Try to understand the code and how exactly the various topics are being published and subscribed. 
 
+- We have abstracted away much of the ROS node interactions and only left you with the logic implementation. Read the documentation provided carefully as it will solve almost 80% of any doubts you might have.
+
 - A soft deadline for this subtask is 27th Apr while the next subtask will be done later keeping your midsems in mind, although we wouldn't mind if you submit the entire task by the deadline of subtask B, but it would be better if you split it into two parts the way we have done. 
 
 - As always, feel free to ask any doubts you may have about the task. Good luck!
