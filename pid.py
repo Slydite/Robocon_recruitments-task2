@@ -6,7 +6,7 @@ from nav_msgs.msg import Odometry
 from tf2_msgs.msg import TFMessage
 import math
 
-@staticmethod
+
 def quaternion2euler(ox, oy, oz, ow):
     
     # Convert quaternion to Euler angles (yaw_z)
@@ -29,8 +29,8 @@ class Controller:
         self.path = [(0, 0), (4,0), (4,4), (0, 4), (2,2)]
 
         # Initialize variables
-        vel_msg = Twist()
-        rate = rospy.Rate(10)
+        self.vel_msg = Twist()
+        self.rate = rospy.Rate(10)
         self.x = 0
         self.y = 0
         self.theta = 0
@@ -48,11 +48,16 @@ class Controller:
         self.ki_ang = 0.001
         self.kd_ang = 0.01
 
+    
+    def tester(self):
+
         counter = 0
 
-        #Note: This is just a sample code to help you understand how the code works 
-        #for publishing messages to the bot
-        #You are expected to change it up sufficiently to align it with the problem statement
+        """
+        Note: This is just a sample code to help you understand how the code works 
+        for publishing messages to the bot
+        You are expected to change it up sufficiently to align it with the problem statement
+        """
 
         while not rospy.is_shutdown():
             if counter % 20 == 0:
@@ -61,25 +66,31 @@ class Controller:
                 #Obviously your implementation shouldn't make changes every 2 seconds only. Updating values in every iteration of a while loop should 
                 #do the trick
                 
-                print("Current velocity: ", vel_msg.linear.x)
-                print("Current angular velocity: ", vel_msg.angular.z)
+                print("Current velocity: ", self.vel_msg.linear.x)
+                print("Current angular velocity: ", self.vel_msg.angular.z)
                 print("Current coordinates: ", self.x, self.y)
 
                 # Stop the robot and prompt the user for new velocities every 2 seconds
-                vel_msg.linear.x = 0            #Set the x velocity for the message using this variable
-                vel_msg.angular.z = 0           #Set the z angular velocity for the message using this variable
-                self.pub.publish(vel_msg)     
+                self.vel_msg.linear.x = 0            #Set the x velocity for the message using this variable
+                self.vel_msg.angular.z = 0           #Set the z angular velocity for the message using this variable
+                self.pub.publish(self.vel_msg)     
                 
                 #Instead of taking user input, input the coordinates to determine velocity
                 #HINT: This is what PID controllers are for, to calculate the velocity you need to reach your goal. 
-                vel_msg.linear.x = float(input("Enter linear velocity: "))                                                                 
-                vel_msg.angular.z = float(input("Enter angular velocity: "))
+                self.vel_msg.linear.x = float(input("Enter linear velocity: "))                                                                 
+                self.vel_msg.angular.z = float(input("Enter angular velocity: "))
 
             # Publish the velocities to the cmd_vel topic and sleep for the specified rate
-            print("cmd_vel vals", vel_msg.linear.x, vel_msg.angular.z)
-            self.pub.publish(vel_msg)
-            rate.sleep()
+            print("cmd_vel vals", self.vel_msg.linear.x, self.vel_msg.angular.z)
+            self.pub.publish(self.vel_msg)
+            self.rate.sleep()
             counter += 1
+
+    """
+    Write your implementation here
+    """
+    def mover(self):
+        pass
 
     
     #Use this to verify if you have reached the correct position.
@@ -100,5 +111,10 @@ class Controller:
 if __name__ == '__main__':
     try:
         controller = Controller()
+        controller.tester() #Comment this line out once you are done testing our code and writing your own
+
+        #And uncomment this to write your implementation
+
+        #controller.mover()
     except rospy.ROSInterruptException:
         pass
