@@ -24,7 +24,7 @@ In this subtask, you'll learn how to use a PID controller to take control of the
 
 - It is highly recommended for you to read and understand every word of the Documentation we have provided. If you are unfamiliar with python, try and understand what each part of the code does, you may use chatpgt to understand the code, but writing the code for the pid controller is not advised since this activity is more to promote learning than to serve as recruitments.
 
-- The deadline for this subtask is 27th May while the next subtask will be done later keeping your midsems in mind. 
+- The deadline for this subtask is 27th May while the next subtask will be done later keeping your midsems in mind, although we wouldn't mind if you submit the entire task by the deadline of subtask 2, but it would be better if you split it into two parts the way we have done. 
 
 - As always, feel free to ask any doubts you may have about the task. Good luck!
 
