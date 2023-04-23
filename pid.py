@@ -57,6 +57,10 @@ class Controller:
         while not rospy.is_shutdown():
             if counter % 20 == 0:
                 # Print current velocity, angular velocity and coordinates every 2 seconds
+                
+                #Obviously your implementation shouldn't make changes every 2 seconds only. Updating values in every iteration of a while loop should 
+                #do the trick
+                
                 print("Current velocity: ", vel_msg.linear.x)
                 print("Current angular velocity: ", vel_msg.angular.z)
                 print("Current coordinates: ", self.x, self.y)
@@ -67,7 +71,7 @@ class Controller:
                 self.pub.publish(vel_msg)     
                 
                 #Instead of taking user input, input the coordinates to determine velocity
-                #HINT: This is what PID controllers are for, to calculate the veleocity you need to reach your goal. 
+                #HINT: This is what PID controllers are for, to calculate the velocity you need to reach your goal. 
                 vel_msg.linear.x = float(input("Enter linear velocity: "))                                                                 
                 vel_msg.angular.z = float(input("Enter angular velocity: "))
 
